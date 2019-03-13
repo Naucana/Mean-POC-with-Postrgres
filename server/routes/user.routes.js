@@ -5,7 +5,7 @@ const db = require('../database.js');
 const urlUser = '/users/';
 
 router.get(urlUser, function(request, response){
-    db.query('SELECT * FROM users ORDER BY users_id ASC', (error, results) => {
+    db.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
         if (error) {
             throw error
         }
@@ -14,7 +14,7 @@ router.get(urlUser, function(request, response){
 });
 
 router.get(urlUser + ':id', function(request, response){
-    db.query('SELECT * FROM users WHERE users_id = $1', [request.params.id], (error, results) => {
+    db.query('SELECT * FROM users WHERE user_id = $1', [request.params.id], (error, results) => {
         if (error) {
             throw error
         }
@@ -30,7 +30,7 @@ router.post(urlUser, function(request, response){
         password
     } = request.body
 
-    db.query('INSERT INTO users (users_id, name, valid, password) VALUES ($1, $2, $3, $4)', [users_id, name, valid, password], (error, results) => {
+    db.query('INSERT INTO users (user_id, name, valid, password) VALUES ($1, $2, $3, $4)', [user_id, name, valid, password], (error, results) => {
         if (error) {
             throw error;
         }
@@ -46,7 +46,7 @@ router.put(urlUser + ':id' + ':name' + ':email', function(request, response){
     } = request.body
 
     db.query(
-        'UPDATE users SET name = $1, email = $2 WHERE users_id = $3',
+        'UPDATE users SET name = $1, email = $2 WHERE user_id = $3',
     [request.params.name, request.params.email, request.params.id],
         (error, results) => {
             if (error) {
@@ -58,7 +58,7 @@ router.put(urlUser + ':id' + ':name' + ':email', function(request, response){
 });
 
 router.delete(urlUser + ':id', function(request, response){
-    db.query('DELETE FROM users WHERE users_id = $1', [request.params.id], (error, results) => {
+    db.query('DELETE FROM users WHERE user_id = $1', [request.params.id], (error, results) => {
         if (error) {
             throw error
         }

@@ -1,6 +1,4 @@
-//const mysql = require('mysql');
-//const { Schema } = mysql;
-
+// Not Used
 const employeeSchema = new Schema({
     name: { type: String, required: true},
     position: { type: String, required: true },

@@ -1,3 +1,4 @@
+// Not Used
 const Employee = require('../models/employee');
 
 const employeeCtrl = {};
