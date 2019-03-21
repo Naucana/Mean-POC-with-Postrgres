@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web';
-  mensaje = 'It\'s dark to enter here!';
+  mensaje = 'ToDo List example';
 }
